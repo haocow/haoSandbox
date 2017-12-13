@@ -1,0 +1,129 @@
+DEPEND TCPIP NETCARD
+DEPEND TELNET TCPIP SOCKET
+DEPEND DNS TCPIP
+DEPEND HTML REGEX XML
+DEPEND REGEX PARSING
+DEPEND BROWSER DNS TCPIP HTML CSS
+INSTALL TCPIP
+	Installing NETCARD
+	Installing TCPIP
+REMOVE NETCARD
+	NETCARD is still needed.
+REMOVE TCPIP
+	Removing TCPIP
+	Removing NETCARD
+REMOVE NETCARD
+	NETCARD is not installed.
+INSTALL TCPIP
+	Installing NETCARD
+	Installing TCPIP
+LIST
+	NETCARD
+	TCPIP
+INSTALL TCPIP
+	TCPIP is already installed.
+INSTALL foo
+	Installing foo
+REMOVE TCPIP
+	Removing TCPIP
+	Removing NETCARD
+INSTALL NETCARD
+	Installing NETCARD
+INSTALL TCPIP
+	Installing TCPIP
+REMOVE TCPIP
+	Removing TCPIP
+LIST
+	NETCARD
+	foo
+INSTALL TCPIP
+	Installing TCPIP
+INSTALL NETCARD
+	NETCARD is already installed.
+REMOVE TCPIP
+	Removing TCPIP
+LIST
+	NETCARD
+	foo
+REMOVE NETCARD
+	Removing NETCARD
+INSTALL BROWSER
+	Installing NETCARD
+	Installing TCPIP
+	Installing DNS
+	Installing PARSING
+	Installing REGEX
+	Installing XML
+	Installing HTML
+	Installing CSS
+	Installing BROWSER
+LIST
+	BROWSER
+	CSS
+	DNS
+	HTML
+	NETCARD
+	PARSING
+	REGEX
+	TCPIP
+	XML
+	foo
+REMOVE BROWSER
+	Removing BROWSER
+	Removing DNS
+	Removing TCPIP
+	Removing NETCARD
+	Removing HTML
+	Removing REGEX
+	Removing PARSING
+	Removing XML
+	Removing CSS
+LIST
+	foo
+INSTALL HTML
+	Installing PARSING
+	Installing REGEX
+	Installing XML
+	Installing HTML
+INSTALL TELNET
+	Installing NETCARD
+	Installing TCPIP
+	Installing SOCKET
+	Installing TELNET
+REMOVE SOCKET
+	SOCKET is still needed.
+INSTALL DNS
+	Installing DNS
+INSTALL BROWSER
+	Installing CSS
+	Installing BROWSER
+REMOVE NETCARD
+	NETCARD is still needed.
+LIST
+	BROWSER
+	CSS
+	DNS
+	HTML
+	NETCARD
+	PARSING
+	REGEX
+	SOCKET
+	TCPIP
+	TELNET
+	XML
+	foo
+REMOVE BROWSER
+	Removing BROWSER
+	Removing CSS
+LIST
+	DNS
+	HTML
+	NETCARD
+	PARSING
+	REGEX
+	SOCKET
+	TCPIP
+	TELNET
+	XML
+	foo
+END

@@ -8,54 +8,77 @@ class Node:
         self.left = None
         self.right = None
 
-    def insert(self, val):
-        if (self.val < val):
-            if (self.left == None):
-                self.left = Node(val)
-            else:
-                self.left.insert(val)
-        else:
-            if (self.right == None):
-                self.right = Node(val)
-            else:
-                self.right.insert(val)
+    def dfs(self, todo, string = ""):
+        if len(todo) == 0:
+            print string
+            return
+
+        node = todo.pop(0)
+        string += "" if string == "" else ", "
+        string += str(node.val)
+        if node.right != None:
+            todo = [node.right] + todo
+        if node.left != None:
+            todo = [node.left] + todo
+
+        self.dfs(todo, string)
+
+    def bfs(self, todo, string = ""):
+        if len(todo) == 0:
+            print string
+            return
+
+        node = todo.pop(0)
+        string += "" if string == "" else ", "
+        string += str(node.val)
+        if node.left != None:
+            todo += [node.left]
+        if node.right != None:
+            todo += [node.right]
+
+        self.bfs(todo, string)
+
+def printTree(root):
+    q = [(root,0)]
+
+    tree = {}
+    maxLevel = 0
+    while len(q) > 0:
+        (node, level) = q.pop()
+        if node == None:
+            continue
+        if level not in tree:
+            tree[level] = []
+
+        tree[level].append(node.val)
+
+        q.append((node.left, level+1))
+        q.append((node.right, level+1))
+
+        if level+1 > maxLevel:
+            maxLevel = level+1
+
+    print tree
+    for i in range(maxLevel):
+        print tree[i][::-1]
 
 
-class Tree:
-    root = None
+n1 = Node(1)
+n2 = Node(2)
+n3 = Node(3)
+n4 = Node(4)
+n5 = Node(5)
+n6 = Node(6)
+n7 = Node(7)
 
-    def __init__(self, val):
-        self.root = Node(val)
+n1.left = n2
+n1.right = n3
+n2.left = n4
+n2.right = n5
+n3.left = n6
+n3.right = n7
 
-    def insert(self, val):
-        self.root.insert(val)
+n1.dfs([n1])
+n1.bfs([n1])
 
-    def printTree(self):
-        tree = {}
-        queue = [(self.root, 0)]
-
-        while (len(queue) > 0):
-            (currNode, currLevel) = queue.pop()
-
-            if (len(tree) <= currLevel):
-                tree[currLevel] = []
-
-            addVal = None if currNode == None else currNode.val
-            tree[currLevel].append(addVal)
-
-            if currNode.left != None:
-                queue.append((currNode.left, currLevel+1))
-            if currNode.right != None:
-                queue.append((currNode.right, currLevel+1))
-
-        print tree
-
-tree = Tree(5)
-tree.insert(3)
-tree.insert(9)
-tree.insert(4)
-tree.insert(10)
-tree.insert(7)
-tree.insert(100)
-tree.insert(88)
-tree.printTree()
+printTree(n1)
