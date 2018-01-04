@@ -1,11 +1,11 @@
-class Test:
-    val = None
+import string
 
-    def __init__(self, init1):
-        self.val = init1
+def reverseWords(stringIn):
+    words = filter(lambda x: x != "", string.split(stringIn, ' '))
 
-    def getVal(self):
-        return self.val
+    return string.join(words[::-1], ' ').strip()
 
-testObj = Test("Jon Hao")
-print testObj.getVal()
+assert(reverseWords("the quick brown fox jumped over the lazy dog") == "dog lazy the over jumped fox brown quick the")
+assert(reverseWords("") == "")
+assert(reverseWords(" ") == "")
+assert(reverseWords("b     a    ") == "a b")
